@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>高校生でもわかる！フロイトの精神分析入門</title>
+    <title>実はもう古い？フロイトの精神分析に対する批判</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Zen Maru Gothic', sans-serif;
-            background-color: #f0f9ff;
+            background-color: #f8fafc;
             color: #334155;
             line-height: 1.8;
         }
         .hero-bg {
-            background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+            background: linear-gradient(135deg, #cbd5e1 0%, #94a3b8 100%);
         }
         .card {
             transition: transform 0.2s;
@@ -24,12 +24,24 @@
         }
         /* 氷山アニメーション用 */
         @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
+            0% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-5px) rotate(-1deg); }
+            50% { transform: translateY(-10px) rotate(0deg); }
+            75% { transform: translateY(-5px) rotate(1deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
         }
         .floating-iceberg {
-            animation: float 6s ease-in-out infinite;
+            animation: float 5s ease-in-out infinite;
+        }
+        /* ヒビ割れアニメーション用 */
+        .crack {
+            stroke-dasharray: 200;
+            stroke-dashoffset: 200;
+            animation: crack-draw 3s ease-out forwards;
+            animation-delay: 1s;
+        }
+        @keyframes crack-draw {
+            to { stroke-dashoffset: 0; }
         }
     </style>
 </head>
@@ -38,14 +50,14 @@
     <!-- ヘッダー / ヒーローセクション -->
     <header class="hero-bg py-16 px-4 text-center shadow-sm">
         <div class="max-w-3xl mx-auto">
-            <span class="bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded-full mb-4 inline-block">心理学入門</span>
+            <span class="bg-red-600 text-white text-sm font-bold px-3 py-1 rounded-full mb-4 inline-block">心理学の落とし穴</span>
             <h1 class="text-3xl md:text-5xl font-bold text-slate-800 mb-6 leading-tight">
-                心はまるで「氷山」？<br>
-                <span class="text-blue-600 text-2xl md:text-4xl mt-2 block">フロイトの精神分析がわかるページ</span>
+                心は本当に「氷山」なのか？<br>
+                <span class="text-red-700 text-2xl md:text-4xl mt-2 block">フロイト理論を批判的に見てみよう</span>
             </h1>
-            <p class="text-slate-600 md:text-lg">
-                「つい変なことを言っちゃった」「変な夢を見た」<br>
-                それ、あなたの心の奥底（深層心理）の仕業かもしれません。
+            <p class="text-slate-800 md:text-lg">
+                「無意識」「トラウマ」「エディプス・コンプレックス」…<br>
+                有名なフロイトの理論ですが、現代の心理学では「科学的根拠が乏しい」と批判されているのを知っていますか？
             </p>
         </div>
     </header>
@@ -55,33 +67,33 @@
 
         <!-- セクション1: フロイトって誰？ -->
         <section class="mb-16">
-            <h2 class="text-2xl font-bold text-slate-800 border-b-4 border-blue-300 pb-2 mb-6 flex items-center">
-                <span class="text-3xl mr-2">🧔‍♂️</span> フロイトってどんな人？
+            <h2 class="text-2xl font-bold text-slate-800 border-b-4 border-red-400 pb-2 mb-6 flex items-center">
+                <span class="text-3xl mr-2">🤔</span> フロイト理論の何が問題なの？
             </h2>
             <div class="bg-white rounded-2xl shadow-md p-6 md:p-8 flex flex-col md:flex-row items-center gap-6">
                 <div class="md:w-2/3">
                     <p class="mb-4">
-                        <strong>ジークムント・フロイト</strong>（1856〜1939年）は、オーストリアの精神科医で、「精神分析の父」と呼ばれています。
+                        <strong>ジークムント・フロイト</strong>は「精神分析の父」と呼ばれ、心理学の歴史に大きな影響を与えました。しかし、彼の理論は現在多くの批判にさらされています。
                     </p>
                     <p>
-                        彼の一番の功績は、<strong class="text-blue-600">「人間の心には、自分でも気づいていない『無意識』の領域がある」</strong>と発見したこと。今では当たり前のように使われる「深層心理」や「トラウマ」といった言葉も、彼がいなければ生まれなかったかもしれません。
+                        最大の批判点は、<strong class="text-red-600">「反証可能性がない（＝科学的に間違っていると証明する手段がない）」</strong>ことです。フロイトは何でもかんでも「無意識の抑圧」や「性的な欲求」で説明しようとしましたが、客観的なデータや実験に基づいたものではありませんでした。
                     </p>
                 </div>
-                <div class="md:w-1/3 bg-blue-50 rounded-xl p-4 text-center">
-                    <p class="text-sm text-slate-500 mb-2">名言</p>
-                    <p class="font-bold text-slate-700 italic">「自我は自分自身の主（あるじ）ではない」</p>
-                    <p class="text-xs mt-2 text-slate-500">（私たちは自分の心を全てコントロールできているわけではない、という意味）</p>
+                <div class="md:w-1/3 bg-red-50 rounded-xl p-4 text-center">
+                    <p class="text-sm text-slate-500 mb-2">哲学者の批判</p>
+                    <p class="font-bold text-slate-700 italic">「精神分析は科学ではなく、疑似科学である」</p>
+                    <p class="text-xs mt-2 text-slate-500">（科学哲学者カール・ポパーによる指摘）</p>
                 </div>
             </div>
         </section>
 
         <!-- セクション2: 心の氷山モデル -->
         <section class="mb-16">
-            <h2 class="text-2xl font-bold text-slate-800 border-b-4 border-blue-300 pb-2 mb-6 flex items-center">
-                <span class="text-3xl mr-2">🧊</span> 心の構造「氷山モデル」
+            <h2 class="text-2xl font-bold text-slate-800 border-b-4 border-red-400 pb-2 mb-6 flex items-center">
+                <span class="text-3xl mr-2">🧊</span> 「氷山モデル」の過度な単純化
             </h2>
             <p class="mb-8">
-                フロイトは、人間の心を<strong>「海に浮かぶ氷山」</strong>に例えました。あなたが普段「これが自分の心だ」と思っている部分は、実はほんの一部にすぎないのです。
+                フロイトは心を<strong>「海に浮かぶ氷山」</strong>に例え、「無意識」が大部分を占めると主張しました。しかし、現代の脳科学や認知心理学の観点からは、これは単純化しすぎだと言われています。
             </p>
 
             <div class="flex flex-col md:flex-row gap-8 items-center bg-white rounded-2xl shadow-md p-6 md:p-8">
@@ -115,6 +127,10 @@
                         <!-- 氷山 下部（無意識） -->
                         <path d="M100 150 L190 150 L230 270 L140 290 L60 250 Z" fill="#7dd3fc" opacity="0.8" />
                         
+                        <!-- 氷山のヒビ（理論の崩壊を表現） -->
+                        <path class="crack" d="M145 60 L135 90 L150 110 L130 140 L140 180 L110 220 L130 250" fill="none" stroke="#475569" stroke-width="2" />
+                        <path class="crack" d="M150 110 L170 130 L165 160 L190 190" fill="none" stroke="#475569" stroke-width="2" style="animation-delay: 2s;" />
+
                         <!-- 前意識ライン（水面下すぐ） -->
                         <line x1="85" y1="170" x2="200" y2="170" stroke="#bae6fd" stroke-width="2" stroke-dasharray="4" />
 
@@ -139,19 +155,19 @@
 
                 <!-- 解説テキスト -->
                 <div class="w-full md:w-1/2 space-y-4">
-                    <div class="p-4 bg-white border-2 border-slate-100 rounded-xl shadow-sm">
-                        <h3 class="font-bold text-lg text-blue-600 mb-1">🌊 意識（表層心理）</h3>
-                        <p class="text-sm">水面から出ている部分。今、あなたが「考えている」「感じている」と<strong>自分でわかっている心</strong>のこと。「お腹すいたな」「この記事おもしろいな」など。</p>
+                    <div class="p-4 bg-white border-2 border-slate-200 rounded-xl shadow-sm">
+                        <h3 class="font-bold text-lg text-slate-700 mb-1">🌊 意識（表層心理）</h3>
+                        <p class="text-sm">フロイトは意識を「ほんの一部」としましたが、現代の研究では、私たちの意識的な思考や決定能力は彼が考えたよりもずっと高度で重要であることがわかっています。</p>
                     </div>
                     
-                    <div class="p-4 bg-blue-50 border-2 border-blue-100 rounded-xl shadow-sm">
-                        <h3 class="font-bold text-lg text-blue-700 mb-1">🏊‍♂️ 前意識（ぜんいしき）</h3>
-                        <p class="text-sm">水面のすぐ下。普段は意識していないけれど、<strong>思い出そうとすればすぐ思い出せること</strong>。「昨日の晩ごはん何だったっけ？」「あ、カレーだ！」となる部分です。</p>
+                    <div class="p-4 bg-slate-50 border-2 border-slate-200 rounded-xl shadow-sm">
+                        <h3 class="font-bold text-lg text-slate-700 mb-1">🤔 無意識の実態</h3>
+                        <p class="text-sm">確かに「自動的な脳の処理（認知的な無意識）」は存在します。しかし、フロイトが言うような<strong>「ドロドロとした欲望やトラウマが封じ込められた暗黒の領域」</strong>という証拠は見つかっていません。</p>
                     </div>
 
-                    <div class="p-4 bg-blue-900 text-white rounded-xl shadow-sm">
-                        <h3 class="font-bold text-lg text-blue-200 mb-1">⚓ 無意識（深層心理）</h3>
-                        <p class="text-sm">水深深くの巨大な部分。自分では<strong>絶対に思い出せないし、気づいていない心の奥底</strong>。抑え込んだ感情、本能的な欲望、忘れたいトラウマなどがここに沈んでいます。実は心の大部分はコレ！</p>
+                    <div class="p-4 bg-red-50 border-2 border-red-200 rounded-xl shadow-sm">
+                        <h3 class="font-bold text-lg text-red-700 mb-1">⚠️ 過去への過剰な固執</h3>
+                        <p class="text-sm">精神分析は「現在の問題は全て過去（無意識）に原因がある」と考えがちです。これにより、患者が過去のトラウマ探しに囚われ、今を改善する行動から目を背けてしまう危険性が指摘されています。</p>
                     </div>
                 </div>
             </div>
@@ -159,84 +175,79 @@
 
         <!-- セクション3: 無意識の力 -->
         <section class="mb-16">
-            <h2 class="text-2xl font-bold text-slate-800 border-b-4 border-blue-300 pb-2 mb-6 flex items-center">
-                <span class="text-3xl mr-2">👻</span> 「無意識」が顔を出す瞬間
+            <h2 class="text-2xl font-bold text-slate-800 border-b-4 border-red-400 pb-2 mb-6 flex items-center">
+                <span class="text-3xl mr-2">🙅‍♂️</span> 何でも「無意識」のせいにするこじつけ
             </h2>
             <p class="mb-6">
-                普段は心の奥底に沈んでいる「無意識」ですが、時々ふとした瞬間に表（意識）に漏れ出てくることがあります。フロイトは、これらを観察することで無意識を知ろうとしました。
+                フロイトは夢や言い間違いを「無意識の表れ」として重視しましたが、この解釈手法には「分析者のさじ加減でどうとでも解釈できてしまう」という致命的な欠陥があります。
             </p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- 夢 -->
-                <div class="card bg-white p-6 rounded-2xl shadow-md border-t-4 border-purple-400">
-                    <h3 class="text-xl font-bold mb-3 flex items-center"><span class="text-2xl mr-2">💤</span> 夢</h3>
+                <div class="card bg-white p-6 rounded-2xl shadow-md border-t-4 border-gray-400">
+                    <h3 class="text-xl font-bold mb-3 flex items-center"><span class="text-2xl mr-2">💤</span> 夢の過剰解釈</h3>
                     <p class="text-slate-600 mb-3">
-                        フロイトは「夢は無意識への王道である」と言いました。寝ている時は「理性のバリア」が緩むため、無意識に抑え込んでいた本当の願望や不安が、形を変えて夢に出てくると考えたのです。
+                        フロイトは夢を「抑圧された願望の表れ」としました。しかし現代の脳科学では、夢は単なる「記憶の整理プロセス」や「脳のランダムな神経活動のノイズ」とする見方が主流です。
                     </p>
-                    <p class="text-sm text-slate-500 bg-slate-50 p-3 rounded">
-                        例：「空を飛ぶ夢」は自由になりたい欲求の表れかも？
+                    <p class="text-sm text-red-600 bg-red-50 p-3 rounded font-bold">
+                        批判：「歯が抜ける夢」を見たら「去勢への恐怖だ」、「階段を登る夢」なら「性行為の象徴だ」など、極端な方向に結びつけすぎでした。
                     </p>
                 </div>
 
                 <!-- 言い間違い -->
-                <div class="card bg-white p-6 rounded-2xl shadow-md border-t-4 border-pink-400">
-                    <h3 class="text-xl font-bold mb-3 flex items-center"><span class="text-2xl mr-2">🙊</span> 言い間違い（失錯行為）</h3>
+                <div class="card bg-white p-6 rounded-2xl shadow-md border-t-4 border-gray-400">
+                    <h3 class="text-xl font-bold mb-3 flex items-center"><span class="text-2xl mr-2">🙊</span> 言い間違い（フロイト的失言）</h3>
                     <p class="text-slate-600 mb-3">
-                        ただの言い間違いやド忘れも、フロイトによれば偶然ではありません。「本当は言いたくない」「実はこう思っている」という無意識の本音がポロリと漏れてしまった状態だと説明しました。
+                        言い間違いを「無意識の本音が漏れた」と説明しましたが、認知心理学的には、単なる「音の類似による脳の検索エラー」や「疲労による注意力低下」で十分に説明がつきます。
                     </p>
-                    <p class="text-sm text-slate-500 bg-slate-50 p-3 rounded">
-                        例：嫌いな会議の時間を、無意識のうちに忘れてしまう。
+                    <p class="text-sm text-red-600 bg-red-50 p-3 rounded font-bold">
+                        批判：上司の名前を呼び間違えただけで、「実は無意識下で上司に反逆したいのだ！」と過剰に深読みしてしまいます。
                     </p>
                 </div>
             </div>
         </section>
 
         <!-- コラム：エス・自我・超自我 -->
-        <section class="bg-blue-50 border border-blue-200 rounded-3xl p-6 md:p-10 mb-16 relative overflow-hidden">
-            <div class="absolute top-0 right-0 p-4 opacity-10 text-6xl">🧠</div>
-            <h2 class="text-xl font-bold text-blue-800 mb-4 flex items-center">
-                💡 ちょっと発展：心の中の３人の住人
+        <section class="bg-slate-100 border border-slate-300 rounded-3xl p-6 md:p-10 mb-16 relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-4 opacity-10 text-6xl">🐴</div>
+            <h2 class="text-xl font-bold text-slate-800 mb-4 flex items-center">
+                💡 批判：「馬と乗り手」の例えは本当か？
             </h2>
             <p class="mb-6 text-slate-700">
-                フロイトは、心を「意識・無意識」で分けるだけでなく、その働きを３つのキャラクターに例えました。
+                フロイトは心を<strong>「暴れ馬（イド＝本能）」</strong>と、それに乗って<strong>「手綱を握る騎手（自我＝理性）」</strong>に例えました。しかし、これは心の中に別々の意思を持つ小人がいるように想定する<strong class="text-red-600">ホムンクルスの誤謬</strong>に陥っていると批判されます。
             </p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div class="bg-white p-4 rounded-xl shadow-sm text-center">
-                    <div class="text-3xl mb-2">👿</div>
-                    <h3 class="font-bold text-red-600">イド（エス）</h3>
-                    <p class="text-sm mt-2">「遊びたい！」「食べたい！」という<strong>本能や欲求</strong>の塊。主に無意識の中にいます。</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-white p-4 rounded-xl shadow-sm text-center opacity-70">
+                    <div class="text-3xl mb-2">🐴</div>
+                    <h3 class="font-bold text-slate-500 line-through">暴れ馬（本能・イド）</h3>
+                    <p class="text-xs text-slate-500 mt-2">勝手に暴走する独立した「欲求の塊」が脳内にあるわけではない。</p>
                 </div>
-                <div class="bg-white p-4 rounded-xl shadow-sm text-center">
-                    <div class="text-3xl mb-2">👼</div>
-                    <h3 class="font-bold text-blue-600">超自我（スーパーエゴ）</h3>
-                    <p class="text-sm mt-2">「ルールは守らなきゃ」「それはダメ！」という<strong>道徳心や良心</strong>。親の教えなどがベース。</p>
-                </div>
-                <div class="bg-white p-4 rounded-xl shadow-sm text-center border-2 border-green-400">
-                    <div class="text-3xl mb-2">🧑</div>
-                    <h3 class="font-bold text-green-600">自我（エゴ）</h3>
-                    <p class="text-sm mt-2">イドと超自我の間で挟まれながら<strong>「じゃあこうしよう」と現実的な判断をする</strong>調整役（＝普段のあなた）。</p>
+                <div class="bg-white p-4 rounded-xl shadow-sm text-center opacity-70">
+                    <div class="text-3xl mb-2">🏇</div>
+                    <h3 class="font-bold text-slate-500 line-through">騎手（理性・自我）</h3>
+                    <p class="text-xs text-slate-500 mt-2">脳の中に「私」という中央司令塔（小人）が座っているわけではない。</p>
                 </div>
             </div>
             <p class="mt-4 text-sm text-slate-600 text-center">
-                この３人のバランスが崩れると、心がしんどくなったり、ストレスを感じたりするのです。
+                現代の脳科学では、脳の機能は相互に複雑にネットワーク化されており、「本能」と「理性」が独立したキャラクターのように脳内に実在するわけではないと考えられています。
             </p>
         </section>
 
         <!-- まとめ -->
         <section class="text-center">
-            <h2 class="text-2xl font-bold text-slate-800 mb-4">まとめ：自分の心に優しくなろう</h2>
+            <h2 class="text-2xl font-bold text-slate-800 mb-4">まとめ：歴史的意義と現代の限界</h2>
             <p class="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
-                自分でもコントロールできない「無意識」があることを知ると、<strong>「なんだ、完璧じゃなくて当たり前なんだ」</strong>と思えませんか？<br>
-                時には心の中の「無意識」の声（本当の気持ち）に耳を傾けてあげることが、心を健康に保つ秘訣です。
+                フロイトは「心の病気は対話で治療できるかもしれない」という道を切り拓いた<strong>歴史的な偉人</strong>であることは間違いありません。<br>
+                しかし、彼の理論の多くは科学的検証に耐えられず、現代の精神医学や心理学の第一線（認知行動療法など）からは退いています。<strong>「文学や芸術の読み解き方」としては面白いですが、科学としては割り引いて考える</strong>視点が必要です。
             </p>
         </section>
 
     </main>
 
     <!-- フッター -->
-    <footer class="bg-slate-800 text-slate-300 py-8 text-center text-sm mt-12">
-        <p>&copy; 2026 高校生でもわかる心理学入門</p>
-        <p class="mt-2 text-slate-500">※本ページはフロイトの精神分析の基礎的な考え方を分かりやすく簡略化して解説したものです。</p>
+    <footer class="bg-slate-900 text-slate-400 py-8 text-center text-sm mt-12">
+        <p>&copy; 2026 高校生でもわかる心理学（批判的思考編）</p>
+        <p class="mt-2 text-slate-600">※本ページは精神分析理論に対する一般的な科学的・哲学的批判をまとめたものです。</p>
     </footer>
 
 </body>
